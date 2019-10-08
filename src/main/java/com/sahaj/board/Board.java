@@ -1,7 +1,7 @@
 package com.sahaj.board;
 
-import com.sahaj.pices.Coin;
-import com.sahaj.pices.Striker;
+import com.sahaj.pieces.Coin;
+import com.sahaj.pieces.Strike;
 import lombok.Data;
 
 import java.util.List;
@@ -9,23 +9,21 @@ import java.util.List;
 @Data
 public class Board {
     private List<Coin> coins;
-    private Striker strike;
+
 
     public Board(List<Coin> coins) {
         this.coins = coins;
     }
 
     public boolean isQueenRemoved() {
-        for (Coin coin : coins) {
-            if (coin.equals(Coin.RED)) {
+        for (Coin coin : coins)
+            if (coin.equals(Coin.RED))
                 return false;
-            }
-        }
         return true;
     }
 
-    public void updateBoardCoins() {
-        removeCoinsByStrike();
+    public void updateBoardCoins(Strike strike) {
+        removeCoinsByStrike(strike);
     }
 
     public boolean isAllCoinFinished() {
@@ -33,7 +31,7 @@ public class Board {
     }
 
 
-    public void removeCoinsByStrike() {
+    public void removeCoinsByStrike(Strike strike) {
         if (!isAllCoinFinished()) {
             int numberOfCoinRemoved = strike.getNumberOfCoinToBeRemoved();
             int i = 0;
@@ -42,10 +40,8 @@ public class Board {
                     System.out.println("All queen exhausted");
                     return;
                 }
-//                if (coins.get(i).equals(strike.getCoinPlayed())) {
-                    coins.remove(strike.getCoinPlayed());
-                    numberOfCoinRemoved--;
-//                }
+                coins.remove(strike.getCoinPlayed());
+                numberOfCoinRemoved--;
                 i++;
             }
         }

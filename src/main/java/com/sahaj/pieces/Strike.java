@@ -1,6 +1,6 @@
-package com.sahaj.pices;
+package com.sahaj.pieces;
 
-public enum Striker {
+public enum Strike {
 
     SINGLE_STRIKE("STRIKE", 1, Coin.BLACK, 1),
     MULTI_STRIKE("MULTI_STRIKE", 2, Coin.BLACK, 2),
@@ -14,7 +14,7 @@ public enum Striker {
     private Coin coinPlayed;
     private int numberOfCoinRemoved;
 
-    Striker(String strikeName, int strikePoints, Coin coinPlayed, int numberOfCoinRemoved) {
+    Strike(String strikeName, int strikePoints, Coin coinPlayed, int numberOfCoinRemoved) {
         this.strikeName = strikeName;
         this.strikePoints = strikePoints;
         this.coinPlayed = coinPlayed;

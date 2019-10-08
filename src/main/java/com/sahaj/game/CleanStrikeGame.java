@@ -3,7 +3,7 @@ package com.sahaj.game;
 import com.sahaj.board.Board;
 import com.sahaj.exception.InvalidPlayerNameException;
 import com.sahaj.exception.InvalidStrikeException;
-import com.sahaj.pices.Striker;
+import com.sahaj.pieces.Strike;
 import com.sahaj.player.Player;
 import com.sahaj.validator.Validator;
 
@@ -21,18 +21,17 @@ public class CleanStrikeGame {
         this.playerStrikeIndex = playerStrikeIndex;
     }
 
-    public void play(Striker strike) throws InvalidStrikeException {
+    public void play(Strike strike) throws InvalidStrikeException {
         if (Validator.isValidStrike(board, strike)) {
             Player playerToPlay = getNextPlayerToPlay();
-            board.setStrike(strike);
             playerToPlay.setStrike(strike);
             playerToPlay.play();
-            board.updateBoardCoins();
+            board.updateBoardCoins(strike);
         }
         printIntermediateResult(strike);
     }
 
-    private void printIntermediateResult(Striker strike) {
+    private void printIntermediateResult(Strike strike) {
         System.out.println("Players scores after strike : " + strike);
         for (Player player : players) {
             System.out.print(" player " + player.getName() + ": " + player.getPoint());

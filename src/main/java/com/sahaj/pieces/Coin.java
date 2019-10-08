@@ -1,4 +1,4 @@
-package com.sahaj.pices;
+package com.sahaj.pieces;
 
 import lombok.Getter;
 

@@ -1,15 +1,12 @@
-package test;
-
 import com.sahaj.board.Board;
 import com.sahaj.exception.InvalidStrikeException;
 import com.sahaj.game.CleanStrikeGame;
-import com.sahaj.pices.Coin;
-import com.sahaj.pices.Striker;
+import com.sahaj.pieces.Coin;
+import com.sahaj.pieces.Strike;
 import com.sahaj.player.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,16 +38,14 @@ public class GameSimulationTest {
         int j = 0;
         while (i < p1strikes.size()) {
             if (i <= j) {
-                cleanStrikeGame.play(Striker.valueOf(p1strikes.get(i)));
+                cleanStrikeGame.play(Strike.valueOf(p1strikes.get(i)));
                 System.out.println("-----------------------------------------------------------------");
                 i++;
             } else {
-                cleanStrikeGame.play(Striker.valueOf(p2strikes.get(j)));
+                cleanStrikeGame.play(Strike.valueOf(p2strikes.get(j)));
                 System.out.println("-----------------------------------------------------------------");
                 j++;
             }
         }
     }
-
-
 }

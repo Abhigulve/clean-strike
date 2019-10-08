@@ -2,25 +2,25 @@ package com.sahaj.validator;
 
 import com.sahaj.board.Board;
 import com.sahaj.exception.InvalidStrikeException;
-import com.sahaj.pices.Coin;
-import com.sahaj.pices.Striker;
+import com.sahaj.pieces.Coin;
+import com.sahaj.pieces.Strike;
 
 public class Validator {
-    public static boolean isValidStrike(Board board, Striker striker) throws InvalidStrikeException {
+    public static boolean isValidStrike(Board board, Strike strike) throws InvalidStrikeException {
 //        if (striker.getCoinPlayed().equals(Coin.RED))
 //            if (!isRedStrikeValid(board))
 //                throw new InvalidStrikeException("Invalid Strike ");
-        if (!isCoinOnBoardMoreOrEqualToCoinPlayed(board, striker)) {
-            throw new InvalidStrikeException("Invalid Strike ");
+        if (!isCoinOnBoardMoreOrEqualToCoinPlayed(board, strike)) {
+            throw new InvalidStrikeException("Invalid Strike " + strike);
         }
         return true;
     }
 
-    private static boolean isCoinOnBoardMoreOrEqualToCoinPlayed(Board board, Striker striker) {
-        int numberOfCoinPlayed = striker.getNumberOfCoinToBeRemoved();
+    private static boolean isCoinOnBoardMoreOrEqualToCoinPlayed(Board board, Strike strike) {
+        int numberOfCoinPlayed = strike.getNumberOfCoinToBeRemoved();
         if (numberOfCoinCheck(numberOfCoinPlayed)) return true;
         for (Coin coin : board.getCoins()) {
-            if (coin.equals(striker.getCoinPlayed())) {
+            if (coin.equals(strike.getCoinPlayed())) {
                 numberOfCoinPlayed--;
             }
             if (numberOfCoinCheck(numberOfCoinPlayed)) return true;
