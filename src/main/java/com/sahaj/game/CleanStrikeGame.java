@@ -1,7 +1,6 @@
 package com.sahaj.game;
 
 import com.sahaj.board.Board;
-import com.sahaj.exception.InvalidPlayerNameException;
 import com.sahaj.exception.InvalidStrikeException;
 import com.sahaj.pieces.Strike;
 import com.sahaj.player.Player;
@@ -79,12 +78,4 @@ public class CleanStrikeGame {
         return players.get(nthPlayer - 1);
     }
 
-    public Player getPlayerByName(String name) throws InvalidPlayerNameException {
-        for (Player player : players) {
-            if (player.getName().equalsIgnoreCase(name)) {
-                return player;
-            }
-        }
-        throw new InvalidPlayerNameException("Please provide valid player name");
-    }
 }

@@ -117,5 +117,10 @@ public class CleanStrikeGameTest {
         assertEquals(0, cleanStrikeGame.getIthPlayer(1).getPoint());
     }
 
+    @Test
+    public void coinSizeTest() {
+        assertEquals(9, board.getCoins().size());
+    }
+
 }
 
