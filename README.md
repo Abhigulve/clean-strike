@@ -2,4 +2,4 @@
 
 How to run :-
 
-run GameSimulationTest to check complete simulation of project 
+run GameSimulationTest to check complete simulation of game 
