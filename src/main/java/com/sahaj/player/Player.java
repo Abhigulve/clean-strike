@@ -37,6 +37,9 @@ public class Player {
     }
 
     private void updateFoulCount() {
+        if (strike.getStrikePoints() < 0 || checkConsecutiveEmptyStrikeCount())
+            foulCount++;
+
         if (areThreeStrikesFouls())
             this.point--;
     }
@@ -51,13 +54,8 @@ public class Player {
 
     private void updateStrikeScore() {
         int score = 0;
-        if (checkConsecutiveEmptyStrikeCount()) {
-            foulCount++;
+        if (checkConsecutiveEmptyStrikeCount())
             score = -1;
-        }
-        if (strike.getStrikePoints() < 0) {
-            foulCount++;
-        }
         this.point += strike.getStrikePoints() + score;
     }
 

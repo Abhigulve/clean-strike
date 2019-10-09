@@ -68,7 +68,6 @@ public class CleanStrikeGameTest {
         assertEquals("Invalid Strike RED_STRIKE", invalidStrikeException.getMessage());
     }
 
-
     @Test
     public void gameDrawTest() throws InvalidStrikeException {
         cleanStrikeGame.play(Strike.SINGLE_STRIKE);
@@ -121,6 +120,5 @@ public class CleanStrikeGameTest {
     public void coinSizeTest() {
         assertEquals(9, board.getCoins().size());
     }
-
 }
 
